@@ -1,0 +1,4750 @@
+openapi: 3.0.3
+info:
+  title: LinkedIn Clone
+  version: 1.0.0
+  description: Clone of LinkedIn application
+paths:
+  /core-app/certifications/:
+    get:
+      operationId: core_app_certifications_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCertification'
+          description: ''
+    post:
+      operationId: core_app_certifications_create
+      description: |-
+        Check if the user can create certification and create certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create certifications.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCertification'
+          description: ''
+  /core-app/certifications/{id}/:
+    get:
+      operationId: core_app_certifications_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCertification'
+          description: ''
+    put:
+      operationId: core_app_certifications_update
+      description: |-
+        Check if the user can update certification and update certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCertification'
+          description: ''
+    patch:
+      operationId: core_app_certifications_partial_update
+      description: |-
+        Check if the user can update certification and update certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCertification'
+          description: ''
+    delete:
+      operationId: core_app_certifications_destroy
+      description: |-
+        Check if the user can delete certification and delete certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/courses/:
+    get:
+      operationId: core_app_courses_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCourse'
+          description: ''
+    post:
+      operationId: core_app_courses_create
+      description: |-
+        Check if the user can delete course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create course.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCourse'
+          description: ''
+  /core-app/courses/{id}/:
+    get:
+      operationId: core_app_courses_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCourse'
+          description: ''
+    put:
+      operationId: core_app_courses_update
+      description: |-
+        Check if the user can update course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCourses'
+          description: ''
+    patch:
+      operationId: core_app_courses_partial_update
+      description: |-
+        Check if the user can update course and update course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCourses'
+          description: ''
+    delete:
+      operationId: core_app_courses_destroy
+      description: |-
+        Check if the user can delete course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/educations/:
+    get:
+      operationId: core_app_educations_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetEducation'
+          description: ''
+    post:
+      operationId: core_app_educations_create
+      description: |-
+        Check if the user can create education and create education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create education.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEducation'
+          description: ''
+  /core-app/educations/{id}/:
+    get:
+      operationId: core_app_educations_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEducation'
+          description: ''
+    put:
+      operationId: core_app_educations_update
+      description: |-
+        Check if the user can update education and update education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEducation'
+          description: ''
+    patch:
+      operationId: core_app_educations_partial_update
+      description: |-
+        Check if the user can update education and update education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEducation'
+          description: ''
+    delete:
+      operationId: core_app_educations_destroy
+      description: |-
+        Check if the user can delete education and delete education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/experiences/:
+    get:
+      operationId: core_app_experiences_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetExperience'
+          description: ''
+    post:
+      operationId: core_app_experiences_create
+      description: |-
+        Check if the user can create experience and create experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create experience.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateExperience'
+          description: ''
+  /core-app/experiences/{id}/:
+    get:
+      operationId: core_app_experiences_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetExperience'
+          description: ''
+    put:
+      operationId: core_app_experiences_update
+      description: |-
+        Check if the user can update experience and update experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateExperience'
+          description: ''
+    patch:
+      operationId: core_app_experiences_partial_update
+      description: |-
+        Check if the user can update experience and update experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateExperience'
+          description: ''
+    delete:
+      operationId: core_app_experiences_destroy
+      description: |-
+        Check if the user can delete experience and delete experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/follow-profile/follow-user/:
+    post:
+      operationId: core_app_follow_profile_follow_user_create
+      description: To Create following relationship with a user profile.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Follow'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Follow'
+          description: ''
+  /core-app/follow-profile/followers/:
+    get:
+      operationId: core_app_follow_profile_followers_list
+      description: View to list followers user profiles.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetFollow'
+          description: ''
+  /core-app/follow-profile/following/:
+    get:
+      operationId: core_app_follow_profile_following_list
+      description: View to list following user profiles.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetFollow'
+          description: ''
+  /core-app/follow-profile/unfollow-user/{profile_id}/:
+    delete:
+      operationId: core_app_follow_profile_unfollow_user_destroy
+      description: |-
+        Check if the user profile exists and then unfollow them.
+
+        :param request:
+        :param profile_id:
+        :param *args:
+        :param **kwargs:.
+      parameters:
+      - in: path
+        name: profile_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profile-details/certifications/:
+    get:
+      operationId: core_app_profile_details_certifications_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCertification'
+          description: ''
+    post:
+      operationId: core_app_profile_details_certifications_create
+      description: |-
+        Check if the user can create certification and create certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create certifications.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateCertification'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCertification'
+          description: ''
+  /core-app/profile-details/certifications/{id}/:
+    get:
+      operationId: core_app_profile_details_certifications_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCertification'
+          description: ''
+    put:
+      operationId: core_app_profile_details_certifications_update
+      description: |-
+        Check if the user can update certification and update certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateCertification'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCertification'
+          description: ''
+    patch:
+      operationId: core_app_profile_details_certifications_partial_update
+      description: |-
+        Check if the user can update certification and update certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCertification'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCertification'
+          description: ''
+    delete:
+      operationId: core_app_profile_details_certifications_destroy
+      description: |-
+        Check if the user can delete certification and delete certifications.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete certifications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this certification.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profile-details/courses/:
+    get:
+      operationId: core_app_profile_details_courses_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCourse'
+          description: ''
+    post:
+      operationId: core_app_profile_details_courses_create
+      description: |-
+        Check if the user can delete course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create course.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateCourse'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCourse'
+          description: ''
+  /core-app/profile-details/courses/{id}/:
+    get:
+      operationId: core_app_profile_details_courses_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCourse'
+          description: ''
+    put:
+      operationId: core_app_profile_details_courses_update
+      description: |-
+        Check if the user can update course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateCourses'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCourses'
+          description: ''
+    patch:
+      operationId: core_app_profile_details_courses_partial_update
+      description: |-
+        Check if the user can update course and update course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCourses'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCourses'
+          description: ''
+    delete:
+      operationId: core_app_profile_details_courses_destroy
+      description: |-
+        Check if the user can delete course and delete course.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete course.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profile-details/educations/:
+    get:
+      operationId: core_app_profile_details_educations_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetEducation'
+          description: ''
+    post:
+      operationId: core_app_profile_details_educations_create
+      description: |-
+        Check if the user can create education and create education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create education.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateEducation'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEducation'
+          description: ''
+  /core-app/profile-details/educations/{id}/:
+    get:
+      operationId: core_app_profile_details_educations_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEducation'
+          description: ''
+    put:
+      operationId: core_app_profile_details_educations_update
+      description: |-
+        Check if the user can update education and update education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateEducation'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEducation'
+          description: ''
+    patch:
+      operationId: core_app_profile_details_educations_partial_update
+      description: |-
+        Check if the user can update education and update education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateEducation'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEducation'
+          description: ''
+    delete:
+      operationId: core_app_profile_details_educations_destroy
+      description: |-
+        Check if the user can delete education and delete education.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete education.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this education.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profile-details/experiences/:
+    get:
+      operationId: core_app_profile_details_experiences_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetExperience'
+          description: ''
+    post:
+      operationId: core_app_profile_details_experiences_create
+      description: |-
+        Check if the user can create experience and create experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: create experience.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateExperience'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateExperience'
+          description: ''
+  /core-app/profile-details/experiences/{id}/:
+    get:
+      operationId: core_app_profile_details_experiences_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetExperience'
+          description: ''
+    put:
+      operationId: core_app_profile_details_experiences_update
+      description: |-
+        Check if the user can update experience and update experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateExperience'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateExperience'
+          description: ''
+    patch:
+      operationId: core_app_profile_details_experiences_partial_update
+      description: |-
+        Check if the user can update experience and update experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: update experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateExperience'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateExperience'
+          description: ''
+    delete:
+      operationId: core_app_profile_details_experiences_destroy
+      description: |-
+        Check if the user can delete experience and delete experience.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete experience.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this experience.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profile-details/profiles/:
+    get:
+      operationId: core_app_profile_details_profiles_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetUserProfile'
+          description: ''
+    post:
+      operationId: core_app_profile_details_profiles_create
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserProfile'
+          description: ''
+  /core-app/profile-details/profiles/{id}/:
+    get:
+      operationId: core_app_profile_details_profiles_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserProfile'
+          description: ''
+    put:
+      operationId: core_app_profile_details_profiles_update
+      description: |-
+        Check if the user can update profile and update profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return updated profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserProfile'
+          description: ''
+    patch:
+      operationId: core_app_profile_details_profiles_partial_update
+      description: |-
+        Check if the user can update profile and update profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: updated profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserProfile'
+          description: ''
+    delete:
+      operationId: core_app_profile_details_profiles_destroy
+      description: |-
+        Check if the user can delete profile and delete profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/profiles/:
+    get:
+      operationId: core_app_profiles_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetUserProfile'
+          description: ''
+    post:
+      operationId: core_app_profiles_create
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserProfile'
+          description: ''
+  /core-app/profiles/{id}/:
+    get:
+      operationId: core_app_profiles_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserProfile'
+          description: ''
+    put:
+      operationId: core_app_profiles_update
+      description: |-
+        Check if the user can update profile and update profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return updated profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserProfile'
+          description: ''
+    patch:
+      operationId: core_app_profiles_partial_update
+      description: |-
+        Check if the user can update profile and update profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: updated profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUserProfile'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserProfile'
+          description: ''
+    delete:
+      operationId: core_app_profiles_destroy
+      description: |-
+        Check if the user can delete profile and delete profile.
+        :param request:
+        :param *args:
+        :param **kwargs:
+        :return: delete profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this User Profile.
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/register/register-user/:
+    post:
+      operationId: core_app_register_register_user_create
+      description: View to register new user.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Registration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Registration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Registration'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+          description: ''
+  /core-app/user/change-password/{id}/:
+    put:
+      operationId: core_app_user_change_password_update
+      description: View to Change old password.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePassword'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChangePassword'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChangePassword'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangePassword'
+          description: ''
+    patch:
+      operationId: core_app_user_change_password_partial_update
+      description: To not allow PATCH method.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedChangePassword'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedChangePassword'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedChangePassword'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangePassword'
+          description: ''
+  /core-app/user/delete-user/{id}/:
+    delete:
+      operationId: core_app_user_delete_user_destroy
+      description: To Delete users of the applications.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /core-app/user/list-users/:
+    get:
+      operationId: core_app_user_list_users_list
+      description: To Lists users of the applications.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomUser'
+          description: ''
+  /core-app/user/login/:
+    post:
+      operationId: core_app_user_login_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /core-app/user/login/refresh/:
+    post:
+      operationId: core_app_user_login_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /core-app/user/logout/:
+    post:
+      operationId: core_app_user_logout_create
+      description: |-
+        Logs out a user by blacklisting their refresh token.
+
+        :param request: HTTP request object
+        :return: response object with status code 205 if success else 400 status code.
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /core-app/user/logout-all/:
+    post:
+      operationId: core_app_user_logout_all_create
+      description: |-
+        Logs all users by blacklisting all the refresh tokens.
+
+        :param request: HTTP request object
+        :return: response object with status code 205
+      tags:
+      - core-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /core-app/user/update-user/{id}/:
+    put:
+      operationId: core_app_user_update_user_update
+      description: View to Update User Profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUser'
+          description: ''
+    patch:
+      operationId: core_app_user_update_user_partial_update
+      description: View to Update User Profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - core-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateUser'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUser'
+          description: ''
+  /feeds-app/comment-replies/create/:
+    post:
+      operationId: feeds_app_comment_replies_create_create
+      description: To create comment reply for a comment.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentReply'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommentReply'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommentReply'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentReply'
+          description: ''
+  /feeds-app/comment-replies/delete/{id}/:
+    delete:
+      operationId: feeds_app_comment_replies_delete_destroy
+      description: To delete comment reply on comment.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/comment-replies/list/{comment_id}/:
+    get:
+      operationId: feeds_app_comment_replies_list_list
+      description: To list comment replies on comment.
+      parameters:
+      - in: path
+        name: comment_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCommentReply'
+          description: ''
+  /feeds-app/comment-replies/update/{id}/:
+    put:
+      operationId: feeds_app_comment_replies_update_update
+      description: Update comment reply on a comment.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCommentReply'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateCommentReply'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateCommentReply'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCommentReply'
+          description: ''
+    patch:
+      operationId: feeds_app_comment_replies_update_partial_update
+      description: Update comment reply on a comment.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCommentReply'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCommentReply'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateCommentReply'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCommentReply'
+          description: ''
+  /feeds-app/comments-reactions/create/:
+    post:
+      operationId: feeds_app_comments_reactions_create_create
+      description: To react on comment.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommenReaction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommenReaction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommenReaction'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommenReaction'
+          description: ''
+  /feeds-app/comments-reactions/list/{comment_id}/:
+    get:
+      operationId: feeds_app_comments_reactions_list_list
+      description: List comment reaction on a comment.
+      parameters:
+      - in: path
+        name: comment_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetCommentReaction'
+          description: ''
+  /feeds-app/comments-reactions/remove/{id}/:
+    delete:
+      operationId: feeds_app_comments_reactions_remove_destroy
+      description: To remove comment reaction.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/comments/create/:
+    post:
+      operationId: feeds_app_comments_create_create
+      description: To create comment for a post.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+  /feeds-app/comments/delete/{id}/:
+    delete:
+      operationId: feeds_app_comments_delete_destroy
+      description: To remove comment on a post.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/comments/list/{post_id}/:
+    get:
+      operationId: feeds_app_comments_list_list
+      description: To List comments for post.
+      parameters:
+      - in: path
+        name: post_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetComment'
+          description: ''
+  /feeds-app/comments/update/{id}/:
+    put:
+      operationId: feeds_app_comments_update_update
+      description: To update comment on a post.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+    patch:
+      operationId: feeds_app_comments_update_partial_update
+      description: To update comment on a post.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+  /feeds-app/notifications/:
+    get:
+      operationId: feeds_app_notifications_list
+      description: To list notifications.
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+          description: ''
+  /feeds-app/posts/:
+    get:
+      operationId: feeds_app_posts_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetPost'
+          description: ''
+    post:
+      operationId: feeds_app_posts_create
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreatePost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreatePost'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePost'
+          description: ''
+  /feeds-app/posts/{id}/:
+    get:
+      operationId: feeds_app_posts_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this post.
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPost'
+          description: ''
+    put:
+      operationId: feeds_app_posts_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this post.
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdatePost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdatePost'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatePost'
+          description: ''
+    patch:
+      operationId: feeds_app_posts_partial_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this post.
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdatePost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdatePost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdatePost'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatePost'
+          description: ''
+    delete:
+      operationId: feeds_app_posts_destroy
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this post.
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/reaction-types/:
+    get:
+      operationId: feeds_app_reaction_types_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions for reaction types.
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReactionType'
+          description: ''
+    post:
+      operationId: feeds_app_reaction_types_create
+      description: |-
+        To create reaction type.
+
+        :param request:
+        :param *args:
+        :param **kwargs:
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionType'
+          description: ''
+  /feeds-app/reaction-types/{id}/:
+    get:
+      operationId: feeds_app_reaction_types_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions for reaction types.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Reaction Type.
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionType'
+          description: ''
+    put:
+      operationId: feeds_app_reaction_types_update
+      description: |-
+        To show error on updation.
+
+        :param request:
+        :param *args:
+        :param **kwargs:
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Reaction Type.
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReactionType'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionType'
+          description: ''
+    patch:
+      operationId: feeds_app_reaction_types_partial_update
+      description: |-
+        To show error on updation.
+
+        :param request:
+        :param *args:
+        :param **kwargs:
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Reaction Type.
+        required: true
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedReactionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedReactionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedReactionType'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactionType'
+          description: ''
+    delete:
+      operationId: feeds_app_reaction_types_destroy
+      description: |-
+        To delete reaction type.
+
+        :param request:
+        :param *args:
+        :param **kwargs:
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Reaction Type.
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/reaction/create/:
+    post:
+      operationId: feeds_app_reaction_create_create
+      description: To react on post.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostReaction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PostReaction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PostReaction'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostReaction'
+          description: ''
+  /feeds-app/reaction/list/{post_id}/:
+    get:
+      operationId: feeds_app_reaction_list_list
+      description: Yo list reactions on post.
+      parameters:
+      - in: path
+        name: post_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetPostReaction'
+          description: ''
+  /feeds-app/reaction/remove/{id}/:
+    delete:
+      operationId: feeds_app_reaction_remove_destroy
+      description: To remove reactions on posts.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /feeds-app/reply-reactions/create/:
+    post:
+      operationId: feeds_app_reply_reactions_create_create
+      description: To react on replies on a comment.
+      tags:
+      - feeds-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplyReaction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReplyReaction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReplyReaction'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplyReaction'
+          description: ''
+  /feeds-app/reply-reactions/list/{reply_comment_id}/:
+    get:
+      operationId: feeds_app_reply_reactions_list_list
+      description: List reaction on a specic reply.
+      parameters:
+      - in: path
+        name: reply_comment_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetReplyReaction'
+          description: ''
+  /feeds-app/reply-reactions/remove/{id}/:
+    delete:
+      operationId: feeds_app_reply_reactions_remove_destroy
+      description: To remove reaction comment replies.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - feeds-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /jobs-app/applications/:
+    get:
+      operationId: jobs_app_applications_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetJobApplication'
+          description: ''
+    post:
+      operationId: jobs_app_applications_create
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplication'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JobApplication'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JobApplication'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+          description: ''
+  /jobs-app/applications/{id}/:
+    get:
+      operationId: jobs_app_applications_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Application.
+        required: true
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetJobApplication'
+          description: ''
+    put:
+      operationId: jobs_app_applications_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Application.
+        required: true
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplication'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplication'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplication'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateJobApplication'
+          description: ''
+    patch:
+      operationId: jobs_app_applications_partial_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Application.
+        required: true
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateJobApplication'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateJobApplication'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateJobApplication'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateJobApplication'
+          description: ''
+    delete:
+      operationId: jobs_app_applications_destroy
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Application.
+        required: true
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /jobs-app/jobs/:
+    get:
+      operationId: jobs_app_jobs_list
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetJobPost'
+          description: ''
+    post:
+      operationId: jobs_app_jobs_create
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobPost'
+          description: ''
+  /jobs-app/jobs/{id}/:
+    get:
+      operationId: jobs_app_jobs_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Post.
+        required: true
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetJobPost'
+          description: ''
+    put:
+      operationId: jobs_app_jobs_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Post.
+        required: true
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JobPost'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobPost'
+          description: ''
+    patch:
+      operationId: jobs_app_jobs_partial_update
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Post.
+        required: true
+      tags:
+      - jobs-app
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedJobPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedJobPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedJobPost'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobPost'
+          description: ''
+    delete:
+      operationId: jobs_app_jobs_destroy
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Job Post.
+        required: true
+      tags:
+      - jobs-app
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    ChangePassword:
+      type: object
+      description: Serializer class to change user password.
+      properties:
+        old_password:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        confirmed_password:
+          type: string
+          writeOnly: true
+      required:
+      - confirmed_password
+      - old_password
+      - password
+    CommenReaction:
+      type: object
+      description: Serializer to react on comment.
+      properties:
+        comment:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - comment
+      - reaction_type
+    Comment:
+      type: object
+      description: Serializer for comments on post.
+      properties:
+        post:
+          type: integer
+        text:
+          type: string
+      required:
+      - post
+      - text
+    CommentReply:
+      type: object
+      description: Serializer for replies on comment.
+      properties:
+        comment:
+          type: integer
+        text:
+          type: string
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - comment
+      - text
+    CreateCertification:
+      type: object
+      description: Serializer class to add certification to user profile.
+      properties:
+        person:
+          type: integer
+        name:
+          type: string
+          maxLength: 40
+        issuing_organization:
+          type: string
+          maxLength: 40
+        issue_date:
+          type: string
+          format: date
+          nullable: true
+        expiration_date:
+          type: string
+          format: date
+          nullable: true
+        credential_id:
+          type: string
+          nullable: true
+          maxLength: 20
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        skills:
+          type: string
+          nullable: true
+      required:
+      - issuing_organization
+      - name
+      - person
+    CreateCourse:
+      type: object
+      description: Serializer class to add courses to user profile.
+      properties:
+        person:
+          type: integer
+        course_name:
+          type: string
+          maxLength: 40
+        course_code:
+          type: string
+          nullable: true
+          maxLength: 10
+        associated_with:
+          type: string
+          nullable: true
+          maxLength: 40
+      required:
+      - course_name
+      - person
+    CreateEducation:
+      type: object
+      description: Serializer class to add education to user profile.
+      properties:
+        person:
+          type: integer
+        school:
+          type: string
+          maxLength: 40
+        degree:
+          type: string
+          maxLength: 40
+        field_of_study:
+          type: string
+          maxLength: 40
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        grade:
+          type: string
+          maxLength: 10
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - degree
+      - field_of_study
+      - grade
+      - person
+      - school
+    CreateExperience:
+      type: object
+      description: Serializer class to add experience to user profile.
+      properties:
+        person:
+          type: integer
+        title:
+          type: string
+          maxLength: 30
+        employment_type:
+          $ref: '#/components/schemas/EmploymentTypeEnum'
+        company_name:
+          type: string
+          maxLength: 30
+        location:
+          type: string
+          maxLength: 30
+        location_type:
+          $ref: '#/components/schemas/LocationTypeEnum'
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - company_name
+      - location
+      - person
+      - title
+    CreatePost:
+      type: object
+      description: Serializer class to create Post for logged in user.
+      properties:
+        parent_post:
+          type: integer
+          nullable: true
+        text_body:
+          type: string
+          maxLength: 500
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - text_body
+    CreateUserProfile:
+      type: object
+      description: Serializer to create new profile
+      properties:
+        profile_pic:
+          type: string
+          format: uri
+          nullable: true
+        cover_pic:
+          type: string
+          format: uri
+          nullable: true
+        headline:
+          type: string
+          nullable: true
+          maxLength: 255
+        summary:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+          maxLength: 255
+        industry:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+        age:
+          type: integer
+        gender:
+          $ref: '#/components/schemas/GenderEnum'
+    CustomUser:
+      type: object
+      description: Serializer for user of the app.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 60
+        username:
+          type: string
+          maxLength: 30
+        user_type:
+          $ref: '#/components/schemas/UserTypeEnum'
+      required:
+      - email
+      - id
+      - username
+    EmploymentTypeEnum:
+      enum:
+      - full_time
+      - part_time
+      - freelance
+      - internship
+      type: string
+      description: |-
+        * `full_time` - Full time
+        * `part_time` - Part Time
+        * `freelance` - Freelance
+        * `internship` - Internship
+    Follow:
+      type: object
+      description: Serializer class to follow a user profile.
+      properties:
+        following:
+          type: integer
+      required:
+      - following
+    GenderEnum:
+      enum:
+      - male
+      - female
+      - other
+      type: string
+      description: |-
+        * `male` - Male
+        * `female` - Female
+        * `other` - Other
+    GetCertification:
+      type: object
+      description: Serializer class to display certifications of user profile.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+          maxLength: 40
+        issuing_organization:
+          type: string
+          maxLength: 40
+        issue_date:
+          type: string
+          format: date
+          nullable: true
+        expiration_date:
+          type: string
+          format: date
+          nullable: true
+        credential_id:
+          type: string
+          nullable: true
+          maxLength: 20
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        skills:
+          type: string
+          nullable: true
+        person:
+          type: integer
+      required:
+      - created_at
+      - id
+      - issuing_organization
+      - name
+      - person
+      - updated_at
+    GetComment:
+      type: object
+      description: Serializer to get comments on post.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        post:
+          type: integer
+        comment_owner:
+          type: integer
+        text:
+          type: string
+        reacted_by:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        replied_by:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        time_difference:
+          type: string
+          readOnly: true
+      required:
+      - comment_owner
+      - id
+      - post
+      - reacted_by
+      - replied_by
+      - text
+      - time_difference
+    GetCommentReaction:
+      type: object
+      description: Serializer to get reactions on comments.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        comment:
+          type: integer
+        reaction_owner:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - comment
+      - created_at
+      - id
+      - reaction_owner
+      - reaction_type
+      - updated_at
+    GetCommentReply:
+      type: object
+      description: Serializer for replies on comment.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        text:
+          type: string
+        media:
+          type: string
+          format: uri
+          nullable: true
+        comment:
+          type: integer
+        reply_owner:
+          type: integer
+        reacted_by:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - comment
+      - created_at
+      - id
+      - reacted_by
+      - reply_owner
+      - text
+      - updated_at
+    GetCourse:
+      type: object
+      description: Serializer class to display courses of user profile.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        course_name:
+          type: string
+          maxLength: 40
+        course_code:
+          type: string
+          nullable: true
+          maxLength: 10
+        associated_with:
+          type: string
+          nullable: true
+          maxLength: 40
+        person:
+          type: integer
+      required:
+      - course_name
+      - created_at
+      - id
+      - person
+      - updated_at
+    GetEducation:
+      type: object
+      description: Serializer class to display education of user profile.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        school:
+          type: string
+          maxLength: 40
+        degree:
+          type: string
+          maxLength: 40
+        field_of_study:
+          type: string
+          maxLength: 40
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        grade:
+          type: string
+          maxLength: 10
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+        person:
+          type: integer
+      required:
+      - created_at
+      - degree
+      - field_of_study
+      - grade
+      - id
+      - person
+      - school
+      - updated_at
+    GetExperience:
+      type: object
+      description: Serializer class to get follow a user profile.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 30
+        employment_type:
+          $ref: '#/components/schemas/EmploymentTypeEnum'
+        company_name:
+          type: string
+          maxLength: 30
+        location:
+          type: string
+          maxLength: 30
+        location_type:
+          $ref: '#/components/schemas/LocationTypeEnum'
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+        person:
+          type: integer
+      required:
+      - company_name
+      - created_at
+      - id
+      - location
+      - person
+      - title
+      - updated_at
+    GetFollow:
+      type: object
+      description: Serializer to get follwers for a user.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        follower:
+          type: integer
+        following:
+          type: integer
+      required:
+      - created_at
+      - follower
+      - following
+      - id
+      - updated_at
+    GetJobApplication:
+      type: object
+      description: Serializer to get Application for Job.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        cover_letter:
+          type: string
+          nullable: true
+        resume:
+          type: string
+          format: uri
+          nullable: true
+        applied_at:
+          type: string
+          format: date-time
+          readOnly: true
+        job:
+          type: integer
+        applicant:
+          type: integer
+      required:
+      - applicant
+      - applied_at
+      - created_at
+      - id
+      - job
+      - updated_at
+    GetJobPost:
+      type: object
+      description: Serializer to create Job Post.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+        recruiter:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        applicants:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - applicants
+      - created_at
+      - description
+      - id
+      - recruiter
+      - tags
+      - title
+      - updated_at
+    GetPost:
+      type: object
+      description: Serializer class to display certifications of user profile.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        post_owner:
+          type: integer
+        parent_post:
+          type: integer
+          nullable: true
+        text_body:
+          type: string
+          maxLength: 500
+        media:
+          type: string
+          format: uri
+          nullable: true
+        edited:
+          type: boolean
+          nullable: true
+        reacted_by:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        commented_by:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        number_of_reactions:
+          type: string
+          readOnly: true
+        number_of_comments:
+          type: string
+          readOnly: true
+        time_difference:
+          type: string
+          readOnly: true
+      required:
+      - commented_by
+      - id
+      - number_of_comments
+      - number_of_reactions
+      - post_owner
+      - reacted_by
+      - text_body
+      - time_difference
+    GetPostReaction:
+      type: object
+      description: Serializer to get reactions on post.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        post:
+          type: integer
+        reaction_by:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - created_at
+      - id
+      - post
+      - reaction_by
+      - reaction_type
+      - updated_at
+    GetReplyReaction:
+      type: object
+      description: Serializer for reaction on comment reply.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        comment_reply:
+          type: integer
+        reaction_owner:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - comment_reply
+      - created_at
+      - id
+      - reaction_owner
+      - reaction_type
+      - updated_at
+    GetUserProfile:
+      type: object
+      description: Serializer class for the user.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+        profile_pic:
+          type: string
+          format: uri
+          nullable: true
+        cover_pic:
+          type: string
+          format: uri
+          nullable: true
+        headline:
+          type: string
+          nullable: true
+          maxLength: 255
+        summary:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+          maxLength: 255
+        industry:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+        age:
+          type: integer
+        gender:
+          $ref: '#/components/schemas/GenderEnum'
+        followers_count:
+          type: string
+          readOnly: true
+        following_count:
+          type: string
+          readOnly: true
+      required:
+      - followers_count
+      - following_count
+      - id
+      - user
+    JobApplication:
+      type: object
+      description: Serializer to create Application for Job.
+      properties:
+        job:
+          type: integer
+        cover_letter:
+          type: string
+          nullable: true
+        resume:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - job
+    JobPost:
+      type: object
+      description: Serializer to create Job Post.
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - description
+      - title
+    LocationTypeEnum:
+      enum:
+      - on_site
+      - hybrid
+      - remote
+      type: string
+      description: |-
+        * `on_site` - On Site
+        * `hybrid` - Hybrid
+        * `remote` - Remote
+    Notification:
+      type: object
+      description: Serializer class for Notification.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        message:
+          type: string
+          maxLength: 255
+        recipient:
+          type: integer
+        post:
+          type: integer
+      required:
+      - created_at
+      - id
+      - message
+      - post
+      - recipient
+      - updated_at
+    PatchedChangePassword:
+      type: object
+      description: Serializer class to change user password.
+      properties:
+        old_password:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        confirmed_password:
+          type: string
+          writeOnly: true
+    PatchedComment:
+      type: object
+      description: Serializer for comments on post.
+      properties:
+        post:
+          type: integer
+        text:
+          type: string
+    PatchedJobPost:
+      type: object
+      description: Serializer to create Job Post.
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+    PatchedReactionType:
+      type: object
+      description: Serializer for Reaction types.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+    PatchedUpdateCertification:
+      type: object
+      description: Serializer class to update certifications of user profile.
+      properties:
+        name:
+          type: string
+          maxLength: 40
+        issuing_organization:
+          type: string
+          maxLength: 40
+        issue_date:
+          type: string
+          format: date
+          nullable: true
+        expiration_date:
+          type: string
+          format: date
+          nullable: true
+        credential_id:
+          type: string
+          nullable: true
+          maxLength: 20
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        skills:
+          type: string
+          nullable: true
+    PatchedUpdateCommentReply:
+      type: object
+      description: Serializer for replies on comment.
+      properties:
+        text:
+          type: string
+        media:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUpdateCourses:
+      type: object
+      description: Serializer class to update courses of user profile.
+      properties:
+        course_name:
+          type: string
+          maxLength: 40
+        course_code:
+          type: string
+          nullable: true
+          maxLength: 10
+        associated_with:
+          type: string
+          nullable: true
+          maxLength: 40
+    PatchedUpdateEducation:
+      type: object
+      description: Serializer class to update education of user profile.
+      properties:
+        school:
+          type: string
+          maxLength: 40
+        degree:
+          type: string
+          maxLength: 40
+        field_of_study:
+          type: string
+          maxLength: 40
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        grade:
+          type: string
+          maxLength: 10
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUpdateExperience:
+      type: object
+      description: Serializer class to update experience of user profile.
+      properties:
+        title:
+          type: string
+          maxLength: 30
+        employment_type:
+          $ref: '#/components/schemas/EmploymentTypeEnum'
+        company_name:
+          type: string
+          maxLength: 30
+        location:
+          type: string
+          maxLength: 30
+        location_type:
+          $ref: '#/components/schemas/LocationTypeEnum'
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUpdateJobApplication:
+      type: object
+      description: Serializer to update Application for Job.
+      properties:
+        cover_letter:
+          type: string
+          nullable: true
+        resume:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUpdatePost:
+      type: object
+      description: Serializer class to update education of user profile.
+      properties:
+        parent_post:
+          type: integer
+          nullable: true
+        text_body:
+          type: string
+          maxLength: 500
+        media:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUpdateUser:
+      type: object
+      description: Serializer to update username, first_name, last_name and password.
+      properties:
+        username:
+          type: string
+          maxLength: 30
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+    PatchedUpdateUserProfile:
+      type: object
+      description: Serializer to update user profile
+      properties:
+        profile_pic:
+          type: string
+          format: uri
+          nullable: true
+        cover_pic:
+          type: string
+          format: uri
+          nullable: true
+        headline:
+          type: string
+          nullable: true
+          maxLength: 255
+        summary:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+          maxLength: 255
+        industry:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+        age:
+          type: integer
+        gender:
+          $ref: '#/components/schemas/GenderEnum'
+    PostReaction:
+      type: object
+      description: Serializer to react on post.
+      properties:
+        post:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - post
+      - reaction_type
+    ReactionType:
+      type: object
+      description: Serializer for Reaction types.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+      required:
+      - created_at
+      - id
+      - updated_at
+    Registration:
+      type: object
+      description: Serializer to register new user to the app.
+      properties:
+        username:
+          type: string
+          maxLength: 30
+        password:
+          type: string
+          writeOnly: true
+        confirmed_password:
+          type: string
+          writeOnly: true
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        user_type:
+          $ref: '#/components/schemas/UserTypeEnum'
+      required:
+      - confirmed_password
+      - email
+      - first_name
+      - last_name
+      - password
+      - user_type
+      - username
+    ReplyReaction:
+      type: object
+      description: Serializer for reaction on comment reply.
+      properties:
+        comment_reply:
+          type: integer
+        reaction_type:
+          type: integer
+      required:
+      - comment_reply
+      - reaction_type
+    TokenObtainPair:
+      type: object
+      properties:
+        email:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - email
+      - password
+      - refresh
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    TypeEnum:
+      enum:
+      - like
+      - celebrate
+      - support
+      - love
+      - funny
+      - insightful
+      type: string
+      description: |-
+        * `like` - Like
+        * `celebrate` - Celebrate
+        * `support` - Support
+        * `love` - Love
+        * `funny` - Funny
+        * `insightful` - Insightful
+    UpdateCertification:
+      type: object
+      description: Serializer class to update certifications of user profile.
+      properties:
+        name:
+          type: string
+          maxLength: 40
+        issuing_organization:
+          type: string
+          maxLength: 40
+        issue_date:
+          type: string
+          format: date
+          nullable: true
+        expiration_date:
+          type: string
+          format: date
+          nullable: true
+        credential_id:
+          type: string
+          nullable: true
+          maxLength: 20
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        skills:
+          type: string
+          nullable: true
+      required:
+      - issuing_organization
+      - name
+    UpdateCommentReply:
+      type: object
+      description: Serializer for replies on comment.
+      properties:
+        text:
+          type: string
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - text
+    UpdateCourses:
+      type: object
+      description: Serializer class to update courses of user profile.
+      properties:
+        course_name:
+          type: string
+          maxLength: 40
+        course_code:
+          type: string
+          nullable: true
+          maxLength: 10
+        associated_with:
+          type: string
+          nullable: true
+          maxLength: 40
+      required:
+      - course_name
+    UpdateEducation:
+      type: object
+      description: Serializer class to update education of user profile.
+      properties:
+        school:
+          type: string
+          maxLength: 40
+        degree:
+          type: string
+          maxLength: 40
+        field_of_study:
+          type: string
+          maxLength: 40
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        grade:
+          type: string
+          maxLength: 10
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - degree
+      - field_of_study
+      - grade
+      - school
+    UpdateExperience:
+      type: object
+      description: Serializer class to update experience of user profile.
+      properties:
+        title:
+          type: string
+          maxLength: 30
+        employment_type:
+          $ref: '#/components/schemas/EmploymentTypeEnum'
+        company_name:
+          type: string
+          maxLength: 30
+        location:
+          type: string
+          maxLength: 30
+        location_type:
+          $ref: '#/components/schemas/LocationTypeEnum'
+        start_date:
+          type: string
+          format: date
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        skills:
+          type: string
+          nullable: true
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - company_name
+      - location
+      - title
+    UpdateJobApplication:
+      type: object
+      description: Serializer to update Application for Job.
+      properties:
+        cover_letter:
+          type: string
+          nullable: true
+        resume:
+          type: string
+          format: uri
+          nullable: true
+    UpdatePost:
+      type: object
+      description: Serializer class to update education of user profile.
+      properties:
+        parent_post:
+          type: integer
+          nullable: true
+        text_body:
+          type: string
+          maxLength: 500
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - text_body
+    UpdateUser:
+      type: object
+      description: Serializer to update username, first_name, last_name and password.
+      properties:
+        username:
+          type: string
+          maxLength: 30
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+      required:
+      - email
+      - username
+    UpdateUserProfile:
+      type: object
+      description: Serializer to update user profile
+      properties:
+        profile_pic:
+          type: string
+          format: uri
+          nullable: true
+        cover_pic:
+          type: string
+          format: uri
+          nullable: true
+        headline:
+          type: string
+          nullable: true
+          maxLength: 255
+        summary:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+          maxLength: 255
+        industry:
+          type: string
+          nullable: true
+          maxLength: 255
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+        age:
+          type: integer
+        gender:
+          $ref: '#/components/schemas/GenderEnum'
+    UserTypeEnum:
+      enum:
+      - admin
+      - employee
+      - recruiter
+      type: string
+      description: |-
+        * `admin` - Admin
+        * `employee` - Employee
+        * `recruiter` - Recruiter
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
